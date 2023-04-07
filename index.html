@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+</head>
+<style>
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #login-form {
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+    }
+
+    #error-message {
+        color: red;
+        margin-top: 20px;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+
+<body>
+    <!-- <div class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 p-4">
+                    <form action="post" style="padding:20px;background-color:mintcream;">
+                        <div class="d-flex gap-5 mb-4">
+                            <label>First name</label>
+                            <input type="text" placeholder="First name">
+                        </div>
+                        <div class="d-flex gap-4 mb-4">
+                            <label>Middle name</label>
+                            <input type="text" placeholder="Middle name">
+                        </div>
+                        <div class="d-flex gap-5 mb-4">
+                            <label>Last name</label>
+                            <input type="text" placeholder="Last name">
+                        </div>
+                        <div class="d-flex gap-5 mb-4">
+                            <label>E-mail</label>
+                            <input type="text" placeholder="E-mail" class="ms-4">
+                        </div>
+                        <div class="d-flex gap-5 mb-4">
+                            <label>D.O.B</label>
+                            <input type="text" placeholder="DD/MM/YYYY" class="ms-4">
+                        </div>
+                        <div class="d-flex gap-5 mb-4">
+                            <label>Mobile</label>
+                            <input type="text" placeholder="Mobile" class="ms-3">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-sm-12">Output</div>
+
+            </div>
+        </div>
+    </div> -->
+    <div>
+        <p id="demo">Hello</p>
+    </div>
+    <button onclick="document.getElementById('demo').innerHTML = 'Pushpak Makwana'">Submit</button>
+
+    </div>
+    <div>
+        <p id="demo1"></p>
+        <script>
+            var y;
+            y = 'pushpak';
+            document.getElementById('demo1').innerHTML = y;
+        </script>
+    </div>
+    <form id="login-form">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="error-message"></div>
+    <script>
+        const form = document.getElementById("login-form");
+        const errorMessage = document.getElementById("error-message");
+
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const username = form.elements.username.value;
+            const password = form.elements.password.value;
+
+            if (username === "test" && password === "test123") {
+                alert("Login successful!");
+            } else {
+                errorMessage.textContent = "Incorrect username or password.";
+            }
+        });
+
+    </script>
+
+    <div class="container">
+        <form id="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="remember-me">
+                <label class="form-check-label" for="remember-me">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="error-message"></div>
+    </div>
+    <!-- <script>
+        const form = document.getElementById("login-form");
+        const errorMessage = document.getElementById("error-message");
+
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const username = form.elements.username.value;
+            const password = form.elements.password.value;
+            const rememberMe = form.elements["remember-me"].checked;
+
+            if (username === "admin" && password === "secret") {
+                if (rememberMe) {
+                    localStorage.setItem("username", username);
+                }
+                alert("Login successful!");
+            } else {
+                errorMessage.textContent = "Incorrect username or password.";
+            }
+        });
+
+        // Check if the user has previously logged in and remember their username
+        const storedUsername = localStorage.getItem("username");
+        if (storedUsername) {
+            form.elements.username.value = storedUsername;
+            form.elements["remember-me"].checked = true;
+        }
+
+    </script> -->
+    <div class="tooltip">Hover over me
+        <span class="tooltiptext">Tooltip text</span>
+    </div>
+    <!-- 
+    <script>
+        // Displaying a simple text alert message
+        alert("Hello World!");
+
+        // Displaying a value alert
+        window.alert(5 + 6);
+
+        // Displaying a variable value alert
+        var x = 2;
+        var y = 2;
+        var sum = x + y;
+        alert(sum);
+
+    </script> -->
+    <p id="test"></p>
+    <script>
+        var a = 5;
+        var b = 2;
+        //var c = a;
+
+        //var a = b;
+        //var b = c;
+        a = a + b; //7
+        b = a - b //2
+        a = a - b  //5
+
+        document.getElementById('test').innerHTML = (a + ',' + b);
+        //document.getElementById('test').innerHTML = a;
+
+        // console.log(a);
+        // console.log(b);
+    </script>
+
+    <p id="demo3"> </p>
+
+    <script>
+        const r = 5, s = 3;
+
+        //(x < r) && (y < s); // true
+        if (r < s) {
+
+            document.getElementById('demo3').innerHTML = 'True'
+
+        }
+        else {
+            document.getElementById('demo3').innerHTML = 'False'
+        }
+
+        //document.getElementById('demo3').innerHTML = (r > s);
+
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function func() {
+            var a = 5;
+            document.write("Value of a is " + a);
+        }
+
+        func();
+
+    </script>
+
+    <script type="text/javascript">
+
+        document.write(Number.isNaN(NaN) + "<br />");
+        document.write(Number.isNaN("1") + "<br />");
+        document.write(Number.isNaN("hello") + "<br />");
+
+    </script>
+</body>
+
+</html>
